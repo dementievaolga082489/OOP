@@ -12,6 +12,15 @@ class Product:
         self.__price = price
         self.quantity = quantity
 
+    def __str__(self) -> str:
+        """Строковое отображение класса"""
+        return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
+
+    def __add__(self, other: 'Product') -> float:
+        """Сложение стоимости всех товаров на складе."""
+        total_cost_products = self.__price * self.quantity + other.__price * other.quantity
+        return total_cost_products
+
     @classmethod
     def new_product(cls, product_dict: dict) -> "Product":
         """
@@ -32,7 +41,7 @@ class Product:
         return self.__price
 
     @price.setter
-    def price(self, value):
+    def price(self, value: float) -> None:
         """Сеттер для установки цены с проверкой"""
         if value <= 0:
             print("Цена не должна быть нулевая или отрицательная")
