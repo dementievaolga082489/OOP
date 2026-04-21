@@ -21,6 +21,14 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self) -> str:
+        """Строковое отображение класса"""
+        # Подсчет общего количества продуктов в категории продукта
+        quantity = 0
+        for product in self.__products:
+            quantity += product.quantity
+        return f"{self.name}, количество продуктов: {quantity} шт."
+
     def add_product(self, product: Product) -> None:
         """Метод добавления товаров в категорию"""
         self.__products.append(product)
@@ -31,7 +39,7 @@ class Category:
         """Геттер выводит список товаров в виде строк"""
         product_str = ""
         for product_ in self.__products:
-            product_str += f"{product_.name}, {product_.price} руб. Остаток: {product_.quantity} шт.\n"
+            product_str += f"{str(product_)}\n"
         return product_str
 
     @property
