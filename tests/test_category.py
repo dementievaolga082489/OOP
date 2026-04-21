@@ -48,3 +48,14 @@ def test_add_product_success():
     assert category.products_list[-1] == product2
 
     assert Category.product_count == initial_product_count + 1
+
+
+def test_category_str(category_first):
+    assert str(category_first) == "Смартфоны, количество продуктов: 9 шт."
+
+
+def test_category_iterator(category_iterator):
+    assert category_iterator.index == 0
+    assert next(category_iterator).name == "Samsung Galaxy S23 Ultra"
+    assert next(category_iterator).name == "Iphone 15"
+    assert next(category_iterator).name == "Xiaomi Redmi Note 11"
