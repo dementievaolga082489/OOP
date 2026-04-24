@@ -1,3 +1,5 @@
+import pytest
+
 from src.category import Category
 from src.product import Product
 
@@ -59,3 +61,12 @@ def test_category_iterator(category_iterator):
     assert next(category_iterator).name == "Samsung Galaxy S23 Ultra"
     assert next(category_iterator).name == "Iphone 15"
     assert next(category_iterator).name == "Xiaomi Redmi Note 11"
+
+
+def test_add_product_error(product, category_first):
+    with pytest.raises(TypeError):
+        category_first.add_product(1)
+
+
+def test_add_product(product_2, smartphone_1):
+    product_2.products = smartphone_1
