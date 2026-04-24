@@ -16,10 +16,12 @@ class Product:
         """Строковое отображение класса"""
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
-    def __add__(self, other: 'Product') -> float:
+    def __add__(self, other: "Product") -> float:
         """Сложение стоимости всех товаров на складе."""
-        total_cost_products = self.__price * self.quantity + other.__price * other.quantity
-        return total_cost_products
+        if type(other) is Product:
+            total_cost_products = self.__price * self.quantity + other.__price * other.quantity
+            return total_cost_products
+        raise TypeError
 
     @classmethod
     def new_product(cls, product_dict: dict) -> "Product":
