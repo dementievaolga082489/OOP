@@ -1,4 +1,3 @@
-from black.nodes import Union
 
 from src.product import Product
 
@@ -23,7 +22,7 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other: Union["Smartphone", Product]) -> float:
+    def __add__(self, other: "Smartphone"| Product) -> float:
         """Сложение стоимости всех товаров 'смартфонов' на складе."""
         if type(other) is Smartphone:
             total_cost_products = self.price * self.quantity + other.price * other.quantity
