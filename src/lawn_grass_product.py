@@ -1,4 +1,3 @@
-from black.nodes import Union
 
 from src.product import Product
 
@@ -21,7 +20,7 @@ class LawnGrass(Product):
         self.germination_period = germination_period
         self.color = color
 
-    def __add__(self, other: Union["LawnGrass", Product]) -> float:
+    def __add__(self, other: "LawnGrass"| Product) -> float:
         """Сложение стоимости всех товаров 'газонная трава' на складе."""
         if type(other) is LawnGrass:
             total_cost_products = self.price * self.quantity + other.price * other.quantity
