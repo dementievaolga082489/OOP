@@ -7,7 +7,7 @@ class CategoryIterator:
         self.category = category_obj
         self.index = 0
 
-    def __iter__(self) -> 'CategoryIterator':
+    def __iter__(self) -> "CategoryIterator":
         self.index = 0
         return self
 

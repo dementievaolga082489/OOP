@@ -53,6 +53,18 @@
 **def create_objects_from_json(data)**
 Функция создает объекты классов.
 
+
++ Модуль lawn_grass_product
+
+**class LawnGrass(Product)**
+Дочерний класс 'Трава газонная' принимающий родительский класс Product
+
+
++ Модуль smartphone_product
+
+**class Smartphone(Product)**
+Дочерний класс 'Смартфон' принимающий родительский класс Product
+
  
 
 + Модуль main
