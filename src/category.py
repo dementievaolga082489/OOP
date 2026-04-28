@@ -49,3 +49,10 @@ class Category:
     def products_list(self) -> List[Product]:
         """Возвращает список продуктов"""
         return self.__products
+
+    def middle_price(self):
+        """Подсчитывает средний ценник всех товаров."""
+        try:
+            return sum([product.price for product in self.__products] ) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
