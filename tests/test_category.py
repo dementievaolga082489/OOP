@@ -70,3 +70,7 @@ def test_add_product_error(product, category_first):
 
 def test_add_product(product_2, smartphone_1):
     product_2.products = smartphone_1
+
+def test_middle_price(category_first, category_without_product):
+    assert category_first.middle_price() == 83500
+    assert category_without_product.middle_price() == 0
