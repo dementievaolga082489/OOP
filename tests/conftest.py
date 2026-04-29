@@ -102,3 +102,11 @@ def smartphone_1():
 @pytest.fixture
 def smartphone_2():
     return Smartphone("Xiaomi Redmi Note 11", "1024GB, Синий", 31000.0, 14, 90.3, "Note 11", 1024, "Синий")
+
+
+@pytest.fixture
+def category_without_product():
+    return Category(
+        "Смартфоны",
+        "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни", []
+    )
